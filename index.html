@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Umsaphow Football Tournament 2026</title>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+
+body{background:#eef5ff;color:#111}
+
+header{
+background:linear-gradient(135deg,#0066ff,#002b70);
+color:white;text-align:center;padding:28px 15px
+}
+
+header h1{font-size:26px}
+header p{margin-top:8px}
+
+.container{max-width:700px;margin:auto;padding:15px}
+
+.card{
+background:white;margin:15px 0;padding:20px;
+border-radius:18px;box-shadow:0 4px 15px #0002
+}
+
+.title{text-align:center;color:#0057d9;margin-bottom:18px}
+
+.info{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px
+}
+
+.info div{
+background:#f0f5ff;
+padding:15px;
+border-radius:12px;
+line-height:1.5
+}
+
+.match{
+border:2px solid #0875ff;
+border-radius:16px;
+padding:18px;
+margin-top:15px;
+text-align:center
+}
+
+.teams{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:8px;
+font-size:17px;
+font-weight:bold
+}
+
+.vs{
+background:#0875ff;color:white;
+border-radius:50%;
+min-width:45px;height:45px;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:13px
+}
+
+.score{
+font-size:32px;
+font-weight:bold;
+margin:15px 0;
+color:#0057d9
+}
+
+.status{
+display:inline-block;
+padding:6px 12px;
+border-radius:20px;
+background:#18a558;
+color:white;
+font-size:13px
+}
+
+input,select{
+width:100%;
+padding:13px;
+margin:7px 0;
+border:1px solid #bbb;
+border-radius:9px;
+font-size:16px
+}
+
+button{
+width:100%;
+padding:13px;
+border:0;
+border-radius:9px;
+background:#0875ff;
+color:white;
+font-size:16px;
+margin-top:10px
+}
+
+.update{background:#ff9800}
+.finish{background:#18a558}
+.delete{background:#e53935}
+.qr{background:#6c42f5}
+
+.empty{text-align:center;color:#777;padding:15px}
+
+.admin{
+background:#fff8e1;
+border:1px solid #ffd54f;
+padding:12px;
+border-radius:10px;
+margin-bottom:10px
+}
+
+footer{
+background:#002b70;color:white;
+text-align:center;padding:22px;margin-top:20px
+}
+
+@media(max-width:500px){
+.info{grid-template-columns:1fr}
+.teams{font-size:14px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<h1>⚽ FOOTBALL KNOCKOUT</h1>
+<h2>TOURNAMENT 2026</h2>
+<p>Umsaphow Durga Puja Committee</p>
+<p>🏆 Starts From 7 October 2026</p>
+</header>
+
+<div class="container">
+
+<!-- TOURNAMENT -->
+<div class="card">
+<h2 class="title">🏆 Tournament Details</h2>
+
+<div class="info">
+
+<div>📍 <b>Venue</b><br>Habang Umsaphow Playground</div>
+
+<div>📅 <b>Start Date</b><br>7 October 2026</div>
+
+<div>💰 <b>Joining Fee</b><br>₹1800</div>
+
+<div>🏆 <b>Winner</b><br>₹30,000 + Trophy</div>
+
+<div>🥈 <b>Runner Up</b><br>₹14,000 + Trophy</div>
+
+<div>⏰ <b>Last Date</b><br>4 October 2026</div>
+
+</div>
+</div>
+
+
+<!-- QR -->
+<div class="card">
+<h2 class="title">📱 Tournament QR</h2>
+
+<p style="text-align:center">
+Scan this QR to open the tournament website.
+</p>
+
+<img
+src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=https://probinsunar2-rgb.github.io/UMSAPHOW--FOOTBALL/"
+style="display:block;margin:15px auto;width:220px;height:220px"
+alt="Tournament QR">
+
+<button class="qr"
+onclick="window.open('https://probinsunar2-rgb.github.io/UMSAPHOW--FOOTBALL/','_blank')">
+🌐 Open Website
+</button>
+</div>
+
+
+<!-- MATCHES -->
+<div class="card">
+
+<h2 class="title">⚽ Matches</h2>
+
+<div id="matches">
+<div class="empty">No matches added yet.</div>
+</div>
+
+</div>
+
+
+<!-- ADMIN -->
+<div class="card">
+
+<h2 class="title">👑 Admin Panel</h2>
+
+<div class="admin">
+<b>Admin 1</b><br>Administrator
+</div>
+
+<div class="admin">
+<b>Admin 2</b><br>Administrator
+</div>
+
+<div class="admin">
+<b>Admin 3</b><br>Administrator
+</div>
+
+<div class="admin">
+<b>Admin 4</b><br>Administrator
+</div>
+
+<p style="margin-top:12px;font-size:13px;color:#777">
+Note: Real 4-admin login and live synchronization requires a database/backend.
+</p>
+
+</div>
+
+
+<!-- ADD MATCH -->
+<div class="card">
+
+<h2 class="title">➕ Add Match</h2>
+
+<input id="team1" placeholder="Team 1">
+
+<input id="team2" placeholder="Team 2">
+
+<input id="date" type="date">
+
+<input id="time" type="time">
+
+<button onclick="addMatch()">
+⚽ Add Match
+</button>
+
+</div>
+
+
+<!-- CONTACT -->
+<div class="card">
+
+<h2 class="title">📞 Contact</h2>
+
+<p>7005585054</p>
+<p>6009409650</p>
+<p>8099622204</p>
+<p>8638867462</p>
+
+</div>
+
+</div>
+
+
+<footer>
+© 2026 Umsaphow Football Tournament
+</footer>
+
+
+<script>
+
+let matchNumber = 0;
+
+function addMatch(){
+
+let team1=document.getElementById("team1").value.trim();
+let team2=document.getElementById("team2").value.trim();
+let date=document.getElementById("date").value;
+let time=document.getElementById("time").value;
+
+if(!team1 || !team2 || !date || !time){
+alert("Please fill all details");
+return;
+}
+
+let matches=document.getElementById("matches");
+
+let empty=matches.querySelector(".empty");
+
+if(empty) empty.remove();
+
+matchNumber++;
+
+let match=document.createElement("div");
+
+match.className="match";
+
+match.innerHTML=`
+
+<div class="teams">
+
+<span>⚽ ${team1}</span>
+
+<span class="vs">VS</span>
+
+<span>⚽ ${team2}</span>
+
+</div>
+
+<div class="score">
+<span id="score1-${matchNumber}">0</span>
+-
+<span id="score2-${matchNumber}">0</span>
+</div>
+
+<span class="status" id="status-${matchNumber}">
+🟢 LIVE
+</span>
+
+<p style="margin-top:12px">
+📅 ${date}<br>
+⏰ ${time}<br>
+📍 Habang Umsaphow Playground
+</p>
+
+<button class="update"
+onclick="updateScore(${matchNumber})">
+✏️ Update Score
+</button>
+
+<button class="finish"
+onclick="finishMatch(${matchNumber})">
+🏁 Finish Match
+</button>
+
+<button class="delete"
+onclick="deleteMatch(this)">
+🗑️ Delete Match
+</button>
+
+`;
+
+matches.appendChild(match);
+
+document.getElementById("team1").value="";
+document.getElementById("team2").value="";
+document.getElementById("date").value="";
+document.getElementById("time").value="";
+}
+
+
+function updateScore(id){
+
+let s1=prompt("Enter Team 1 score:");
+
+if(s1===null)return;
+
+let s2=prompt("Enter Team 2 score:");
+
+if(s2===null)return;
+
+if(s1==="" || s2===""){
+alert("Enter both scores");
+return;
+}
+
+document.getElementById("score1-"+id).innerText=s1;
+document.getElementById("score2-"+id).innerText=s2;
+
+}
+
+
+function finishMatch(id){
+
+let status=document.getElementById("status-"+id);
+
+status.innerText="🏁 FINISHED";
+status.style.background="#555";
+
+}
+
+
+function deleteMatch(button){
+
+button.parentElement.remove();
+
+let matches=document.getElementById("matches");
+
+if(matches.children.length===0){
+
+matches.innerHTML=
+'<div class="empty">No matches added yet.</div>';
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
